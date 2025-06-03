@@ -1,0 +1,698 @@
+
+
+AI-Free Writing Assistant Web SAAS App (No API, Fully Offline)
+
+
+Build a fully offline, browser-based AI-free Writing Assistant using only HTML, CSS, and JavaScript.
+
+The tool should provide grammar assistance, readability scoring, live writing statistics, and productivity features — all running 100% on the client-side with no internet, no backend, and no external API calls.
+
+This app should be lightweight, fast, privacy-friendly, and suitable for writers, students, and content creators who prefer transparent, non-AI, rule-based tools.
+
+Core Functionalities
+Text Editor
+Contenteditable area or <textarea>
+
+Autosave to localStorage
+
+Light/Dark mode toggle
+
+Undo/Redo support
+
+Keyboard shortcuts (Ctrl+B, Ctrl+I, etc.)
+
+Live Writing Stats Panel
+Word count
+
+Character count (with/without spaces)
+
+Sentence count
+
+Paragraph count
+
+Estimated reading time (200 WPM)
+
+Readability Score
+Flesch-Kincaid Reading Ease
+
+Flesch-Kincaid Grade Level
+
+Color-coded readability indicators:
+
+Easy (60–100)
+
+Moderate (30–59)
+
+Difficult (0–29)
+
+Grammar & Style Suggestions (Offline, JS-Logic)
+Rule-Based Grammar Checks:
+Double spaces
+
+Repeated words (e.g., "the the")
+
+Passive voice (e.g., “was eaten”, “is being done”)
+
+Overused filler words: very, really, just, actually
+
+Long/complex sentence warning (based on word length and commas)
+
+Basic Offline Spell Check:
+Use small built-in dictionary (JSON)
+
+Highlight common misspellings
+
+Synonym Suggestions:
+On hover or click, show synonyms from a local JSON-based thesaurus
+
+Productivity Tools
+Focus Mode: Hide all distractions except the editor
+
+Pomodoro Timer: 25-min work / 5-min break with alert
+
+Writing Goal Tracker: Set targets like 500 words or 5 paragraphs, with progress bar
+
+Last Edited Timestamp: Show and auto-update edit history
+
+Version History: Auto-snapshots stored in localStorage, user can restore any version
+
+Export & Data Control
+Export writing as .txt, .md, or .pdf (JS-based)
+
+Print view with clean formatting
+
+Manual Import/Export as .json
+
+Full data wipe/reset button
+
+"Your data never leaves your browser" trust message
+
+User Interface Features
+Responsive layout (mobile + desktop)
+
+Font style selector (Serif, Sans, Monospace)
+
+Minimalist theme with animations (optional Tailwind CSS)
+
+Rich text formatting toolbar (Bold, Italic, Headings)
+
+Markdown preview panel (optional)
+
+Tech Stack & Requirements
+HTML5
+
+CSS3 (vanilla or TailwindCSS)
+
+JavaScript (ES6+)
+
+No frameworks, no backend, no APIs
+
+All features should work offline in the browser
+
+Storage via localStorage or IndexedDB
+
+Optional Premium Add-ons (for SaaS Monetization)
+Templates: Blog, Essay, Resume, Email, Research Note
+
+Custom grammar rule builder (user-defined)
+
+Unlock more synonym suggestions
+
+Local encrypted file storage (for pro version)
+
+Privacy-First Statement
+This app is 100% offline. Your writing never touches the internet. All grammar, readability, and spelling checks happen directly in your browser.
+
+Monetization/Business Angle (Bonus for Prompt Minds)
+Free version with limited tools
+
+Paid desktop version (Electron app)
+
+Bundle with writing templates
+
+Offer under a "No AI, Privacy-Focused" brand
+
+Add affiliate links for premium writing books/tools
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===========================================
+
+
+Whatever name, logo, header, footer, color, style is used in the code below, put it in the code above.
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced GST Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #66FCF1;
+            --background: #0B0C10;
+            --card-bg: #1F2833;
+            --text: #C5C6C7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        /* Header Styles */
+        .header {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), #45A29E);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+            box-shadow: 0 4px 15px rgba(102, 252, 241, 0.3);
+        }
+
+        .logo-circle span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--card-bg);
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links a:hover {
+            background: var(--primary);
+            color: var(--card-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 252, 241, 0.4);
+        }
+
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        .popup button {
+            background: var(--primary);
+            color: var(--card-bg);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 252, 241, 0.4);
+        }
+
+        /* Calculator Styles */
+        .calculator-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .calculator-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            margin: 1rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .currency-input {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Added gap between currency dropdown and amount input */
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(102, 252, 241, 0.2);
+        }
+
+        .preset-rates {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .preset-btn {
+            flex: 1;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .preset-btn:hover {
+            background: var(--primary);
+            color: var(--card-bg);
+            border-color: var(--primary);
+            box-shadow: 0 6px 20px rgba(102, 252, 241, 0.4);
+        }
+
+        .toggle-group {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle-btn.active {
+            background: var(--primary);
+            color: var(--card-bg);
+            border-color: var(--primary);
+            box-shadow: 0 6px 20px rgba(102, 252, 241, 0.4);
+        }
+
+        .results-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: var(--card-bg);
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: var(--text);
+            border-top: 2px solid var(--primary);
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem; /* Added margin between links and text */
+        }
+
+        .footer-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 252, 241, 0.4);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem; /* Added margin between text and icons */
+        }
+
+        .social-icons a {
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icons a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 252, 241, 0.4);
+        }
+
+        .footer p {
+            margin-top: 1.5rem; /* Added margin between icons and text */
+        }
+
+        @media (max-width: 768px) {
+            .calculator-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-circle">
+                <span>PM</span>
+            </div>
+            <h1>GST Calculator</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" onclick="openPopup('Home')">Home</a></li>
+                <li><a href="#" onclick="openPopup('About')">About</a></li>
+                <li><a href="#" onclick="openPopup('Services')">Services</a></li>
+                <li><a href="#" onclick="openPopup('Contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="popup" id="popup">
+        <h2 id="popupTitle"></h2>
+        <p id="popupMessage"></p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+
+    <!-- Calculator -->
+    <div class="container">
+        <div class="calculator-wrapper">
+            <div class="calculator-card">
+                <div class="input-group">
+                    <label class="input-label">Amount</label>
+                    <div class="currency-input">
+                        <select class="input-field" id="currency" style="width: 80px;">
+                            <option>₹</option>
+                            <option>$</option>
+                            <option>€</option>
+                            <option>£</option>
+                        </select>
+                        <input type="number" class="input-field" id="amount" placeholder="Enter amount">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">GST Rate</label>
+                    <div class="preset-rates">
+                        <button class="preset-btn" data-rate="5">5%</button>
+                        <button class="preset-btn" data-rate="12">12%</button>
+                        <button class="preset-btn" data-rate="18">18%</button>
+                        <button class="preset-btn" data-rate="28">28%</button>
+                    </div>
+                    <input type="number" class="input-field" id="gstRate" placeholder="Custom %">
+                </div>
+
+                <div class="toggle-group">
+                    <button class="toggle-btn active" data-type="include">Include GST</button>
+                    <button class="toggle-btn" data-type="exclude">Exclude GST</button>
+                </div>
+
+                <div class="results-card">
+                    <div class="result-item">
+                        <span>GST Amount:</span>
+                        <strong id="gstAmount">0.00</strong>
+                    </div>
+                    <div class="result-item">
+                        <span>Net Amount:</span>
+                        <strong id="netAmount">0.00</strong>
+                    </div>
+                    <div class="result-item">
+                        <span>Total Amount:</span>
+                        <strong id="totalAmount">0.00</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-card">
+                <h3>Visual Breakdown</h3>
+                <canvas id="chart" width="300" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#" onclick="openPopup('Privacy Policy')">Privacy Policy</a>
+            <a href="#" onclick="openPopup('Terms of Service')">Terms of Service</a>
+            <a href="#" onclick="openPopup('Contact Us')">Contact Us</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2023 GST Calculator. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Popup Functions
+        function openPopup(title) {
+            let message = '';
+            switch (title) {
+                case 'Home':
+                    message = 'Welcome to the GST Calculator! This tool helps you calculate GST amounts quickly and easily.';
+                    break;
+                case 'About':
+                    message = 'This GST Calculator is designed to provide accurate GST calculations for various rates and currencies.';
+                    break;
+                case 'Services':
+                    message = 'Our services include GST calculation, tax breakdown visualization, and multi-currency support.';
+                    break;
+                case 'Contact':
+                    message = 'For any inquiries, please contact us at support@gstcalculator.com.';
+                    break;
+                case 'Privacy Policy':
+                    message = 'Your privacy is important to us. We do not store any personal data.';
+                    break;
+                case 'Terms of Service':
+                    message = 'By using this service, you agree to our terms and conditions.';
+                    break;
+                case 'Contact Us':
+                    message = 'Feel free to reach out to us for any questions or feedback.';
+                    break;
+                default:
+                    message = 'This is the ' + title + ' section.';
+            }
+            document.getElementById('popupTitle').textContent = title;
+            document.getElementById('popupMessage').textContent = message;
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('popupOverlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+
+        // GST Calculator Logic
+        let chartInstance = null;
+
+        function calculateGST() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const gstRate = parseFloat(document.getElementById('gstRate').value);
+            const isInclusive = document.querySelector('.toggle-btn.active').dataset.type === 'include';
+            const currency = document.getElementById('currency').value;
+
+            if (!amount || !gstRate) return;
+
+            let gstAmount, netAmount, totalAmount;
+            
+            if (isInclusive) {
+                gstAmount = amount * (gstRate / (100 + gstRate));
+                netAmount = amount - gstAmount;
+                totalAmount = amount;
+            } else {
+                gstAmount = amount * (gstRate / 100);
+                netAmount = amount;
+                totalAmount = amount + gstAmount;
+            }
+
+            updateResults(gstAmount, netAmount, totalAmount, currency);
+            updateChart(gstAmount, netAmount, totalAmount);
+        }
+
+        function updateResults(gst, net, total, currency) {
+            document.getElementById('gstAmount').textContent = `${currency}${gst.toFixed(2)}`;
+            document.getElementById('netAmount').textContent = `${currency}${net.toFixed(2)}`;
+            document.getElementById('totalAmount').textContent = `${currency}${total.toFixed(2)}`;
+        }
+
+        function updateChart(gst, net, total) {
+            const ctx = document.getElementById('chart').getContext('2d');
+            
+            if (chartInstance) chartInstance.destroy();
+
+            const netPercentage = ((net / total) * 100).toFixed(2);
+            const gstPercentage = ((gst / total) * 100).toFixed(2);
+
+            chartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [`Net Amount (${netPercentage}%)`, `GST Amount (${gstPercentage}%)`],
+                    datasets: [{
+                        data: [net, gst],
+                        backgroundColor: [ '#66FCF1', '#45A29E' ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: { enabled: true }
+                    }
+                }
+            });
+        }
+
+        // Event Listeners
+        document.querySelectorAll('input').forEach(input => input.addEventListener('input', calculateGST));
+        document.querySelectorAll('.toggle-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                calculateGST();
+            });
+        });
+        document.querySelectorAll('.preset-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.getElementById('gstRate').value = btn.dataset.rate;
+                calculateGST();
+            });
+        });
+    </script>
+</body>
+</html>
+
